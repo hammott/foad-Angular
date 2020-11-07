@@ -1,0 +1,40 @@
+<h1>ارتباط بین کامپوننت ها</h1>
+
+<br>
+<p>ما همیشه در طراحی کامپوننت ها یه پرنت داریم و چایلد داریم منظور همان والد و فرزند است</p>
+<p>اگر بخواهیم اطلاعات از کامپوننت والد به فرزند انتقال داده شود باید داخل کامپوننت فرزند از دکوریتور زیر استفاده کرد</p>
+<p><b>@Input()</b></p>
+<br>
+<p>اگر بخواهیم اطلاعات از کامپوننت فرزند به کامپوننت والد انتقال داده شود از دکوریتور زیر استفاده می کنیم</p>
+<p><b>@Output()</b></p>
+
+<br>
+
+<p><b>@Input() </b> Parent to Child : Property binding</p>
+<p><b>@Input() </b> Child to Parent : event binding</p>
+<br><br>
+<h3>Add font Awesome</h3>
+<p>install by npm : `npm install --save @fortawesome/fontawesome-free`</p>
+<p>Copy direction all.css font awesome in angular.json</p>
+
+<br><br>
+<h3>Example</h3>
+<app-stars [rating] = 3.5></app-stars>
+<app-stars [rating] = 5></app-stars>
+<app-stars [rating] = 4></app-stars>
+<app-stars [rating] = 1.5></app-stars>
+<app-stars [rating] = 4.5></app-stars>
+
+<br><br>
+<app-stars *ngFor = " let rating of ratings" [rating]="rating" (starClicked)="onStarClicked($event)"></app-stars>
+
+<br><br><br>
+<h1>دیکاپل کردن کامپوننت ها یا جدا سازی کامپوننت ها</h1>
+
+<div class="container-fluid">
+    <app-add-user (onAddUserClicked)="userAdded($event)"></app-add-user>
+    <app-user-table [users]="users"></app-user-table>
+
+
+   
+</div>

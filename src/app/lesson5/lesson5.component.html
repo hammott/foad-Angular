@@ -1,0 +1,77 @@
+<h1>Directive</h1>
+<br><hr>
+
+<p>یک سری دستور العمل است که تغییراتی را روی اچ تی ام ال  می توان داد</p>
+<p>DOM DOCUMENT OBJECT MODEL</p>
+<p>نکته : کامپوننت هم دایرکتیو است</p>
+
+<p> دو نوع دایرکتیو داریم : 1- پیش ساخته 2- سفارشی، دایرکتیو های سفارشی دایرکتیو هایی هستند که خودمان آن ها را مینویسیم</p>
+<br>
+<p>دو دسته دایرکتیو داریم</p>
+<p>1. Structural Directive</p>
+<p>2. Atribute Directive</p>
+
+<br><br>
+<h3>1. Atribute Directive: [Style] vs [ngStyle]</h3>
+<button class="btn btn-danger" (click)="isCorrectBtn()">isCorrect</button>
+<p [style] = "styles">[style]</p>
+<p [ngStyle] = "styles">[ngStyle]</p>
+
+
+<br><br>
+<h3>2. Atribute Directive: [class] vs [ngClass]</h3>
+<p [class]="classes">[class]</p>
+<p [ngClass]="classes">[ngClass]</p>
+
+<br><br><hr>
+
+<h3>1. Structural Directive : ngIf</h3>
+<p *ngIf = "isCorrect" >ngIf True</p>
+<p *ngIf = "!isCorrect">ngIf false</p>
+
+<h3>ng-template tag</h3>
+<p>این تگ انگولار است که به خودی خود نمایش داده نمی شود و می خواهیم بصورت شرطی آن را نمایش دهیم</p>
+<p *ngIf="isCorrect; else elseCond">ngIf is True</p>
+<ng-template #elseCond>Else condition with ng-template</ng-template>
+<br><br><hr>
+
+
+<h3>2. Structural Directive : ngFor</h3>
+<p *ngFor="let user of users">{{user}}</p>
+<br>
+<p *ngFor="let user of users; let i=index">{{i + ": " + user}}</p>
+<br>
+<p *ngFor = "let user of userObj; let i=index">{{user.id}} :<b> {{user.name}}</b></p>
+
+<br><br>
+<p>نکته: وقتی صفحه را ریفرش می کنیم کل دیتاها از بین میره و دوباره لود میشود
+    اگر تغییری بدیم روی دیتاها باز هم همینکارو میکند و دیتا هایی که تغییری نکرده است هم ازبین میرود و دوباره لود می شود
+</p>
+<p>ما نمیخواهیم این اتفاق بیفتد و فقط دیتاهایی که تغییر کرده میخواهیم لود شود</p>
+<p>برای این کار این یک راه حل وجود دارد و آن هم استفاده از trackBy است</p>
+
+<br><br>
+<h3>Example for trackBy</h3>
+<p>نکته: برای انجام این کار احتیاج به یه چیز یونیک برای هر آبجکت داریم که اینجا ای دی یونیک است</p>
+<button (click)="refreshNewUser()">Refresh new user</button>
+<p>without trackBy : look at DOM </p>
+<p *ngFor = "let user of userObj2; let i=index">{{user.id}} :<b> {{user.name}}</b></p>
+<br>
+<p>with trackBy : look at DOM</p>
+<p *ngFor = "let user of userObj2; let i=index trackBy:trackByFunc">{{user.id}} :<b> {{user.name}}</b></p>
+<p>در اینجا ما یه فانکش نوشتیم و ترک بای را برای آن تعریف کردیم
+    در اینجا وقتی روی دکمه رفرش یوزر می زنیم ترک بای میاد و براساس ای دی که تو فانکشن تعریف کردیم و و یک چیز یونیک است. چک می کنه میبینه چه تغییراتی روی دیتا کرده و بعد میاد روی داکیومنت اعمال می کند و کل دیتاها در داکیومنت را تغییر نمی دهد
+</p>
+<p>در ترک بای ما از فانکشن بدون پرانتز استفاده کردیم چون نمیخواهیم فانکشن اجرا شود و میخواستیم که فقط ترک شود</p>
+
+<br><hr>
+
+<h3>2. Structural Directive : ngSwitch</h3>
+<p>به جای تگ پاراگراف میشه برای کامپوننت ها هم استفاده کرد</p>
+<div [ngSwitch]="switchProp">
+    <p *ngSwitchCase = "'a'">case = a</p>
+    <p *ngSwitchCase = "'b'">case = b</p>
+    <p *ngSwitchCase = "'c'">case = c</p>
+    <p *ngSwitchCase = "'d'">case = d</p>
+    <p *ngSwitchCase = "'e'">case = e</p>
+</div>

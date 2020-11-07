@@ -1,0 +1,32 @@
+<h1>نکات کلیدی در مورد دایرکتیو ها</h1>
+<br>
+<br>
+<p>ابتدا یک اینترفیس ساختیم IUser</p>
+<p>برای اسم گذاری اینترفیس ها بهتر از ابتدای اسم آنها از I استفاده کنیم</p>
+<p>این اینترفیس را داخل کامپوننت یوزرز اینپوت کردیم</p>
+<p> حالا میخواهیم در این کامپوننت از آن استفاده کنیم که آن را به چایلد کامپوننت می خواهیم انتقال دهیم</p>
+<app-new-user-component [user]="user"></app-new-user-component>
+<br><br>
+<p>get and set</p>
+
+<select name="" id="">
+    <option *ngFor="let user of users">{{ user.name}} : {{user.age}}</option>
+</select>
+<br><br>
+<p>Filter Example</p>
+
+<br>
+<p>دوتا اکستراکچر دایرکتیو نمی توان روی المنت داشت</p>
+<p>So i can't use *ngFor and *ngIf in one element</p>
+<br>
+<h3>Filter age > 29</h3>
+<select>
+    <!-- ng-container dar halat aadi render nemishe -->
+    <ng-container *ngFor="let user of users">
+        <ng-container *ngIf="user.age > 29">
+            <option [ngValue]="user"> {{ user.name}} : {{user.age}}</option>
+        </ng-container>
+    </ng-container>
+</select>
+
+<br><br>

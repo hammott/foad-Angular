@@ -1,0 +1,21 @@
+<p #par7> LifeCycle Hooks Example</p>
+
+
+<button (click)="onChangeViewChild()">From Child Change View Child</button>
+
+<br><br>
+<div style="background-color: green">
+    <ng-content select=".success"></ng-content>
+    <!-- Agar class success dasht -->
+</div>
+
+<div style="background-color: red">
+    <ng-content select=".error"></ng-content>
+    <!-- Agar class error dasht -->
+</div>
+
+<div style="background-color: yellow">
+    <ng-content select=".warning"></ng-content>
+    <!-- Agar class warning dasht -->
+</div>
+

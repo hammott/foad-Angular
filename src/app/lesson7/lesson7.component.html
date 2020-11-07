@@ -1,0 +1,77 @@
+<h1>Encapsulation</h1>
+<h1>کپسوله کردن کامپوننت ها</h1>
+<br>
+<p>وقتی اپلیکیشن را کامپایل می کنیم خود انگولار به صورت اتوماتیک روی تگ ها پروپرتی قرار میدهد که استایل ها با هم قاطی نشود</p>
+<p>متلا اگر روی کامپوننت اصلی استایلی را به یک تگ بدهید و کامپوننت های دیگر هم داخل این کامپوننت باشند
+    استایل ها روی کامپوننت اصلی فقط عمل خواهد کرد. علت آن هم این است انگولار یک سری پروپرتی به تگ ها اضافه می کند
+    و این پروپرتی ها را به فایل استایل همان کامپوننت اضافه می کند که استایل فقط روی همان کامپوننت اعمال شود
+</p>
+<p> نکته ای که اینجا هست، اگر ما بخواهیم استایلی را روی تمام کامپوننت های اعمال کنیم می بایست استایل را روی فایل استایل کلی اپلیکشن بنویسم</p>
+<p>style.css</p>
+
+<br><br>
+<p>این راه ساده تری است</p>
+<p>اما اگر استایلی را روی یک کامپوننت دیگر گذاشتیم و حال می خواهیم از آن در کامپوننت های دیگر استفاده کنیم باید کپسوله کنیم</p>
+<p>چطور می توان یک کامپوننت را کپسوله کرد؟</p>
+<p>آن کامپوننتی که استایل هایش را نیاز داریم در فایل تایپ استکریپت در داخل دکوریتو کامپوننت این را اضافه می کنیم</p>
+
+  <code>
+    @Component &#40;
+        selector: 'app-lesson7',
+        templateUrl: './lesson7.component.html',
+        styleUrls: ['./lesson7.component.css'],
+        encapsulation: ViewEncapsulation.None
+    &#41;
+  </code>
+
+<br><br><hr>
+<h3>Local Refrence</h3>
+<input type="text" #inputName>
+<br><br>
+<button class="btn btn-danger" (click)="onClick(inputName.value)">Click Me</button>
+<br><br><hr>
+
+<h3>View Child</h3>
+<p>دسترسی به المنت های داکیومنت</p>
+<p>از طریق دکوریتور زیر می توان این کار را انجام داد</p>
+<code>@ViewChild &#40; selector, &#123; static:true or false, read: Token &#125; &#41; anyName: typeOfToken</code>
+<p>Token: ElementRef, ViewContainerRef, TemplateRef, Component, Directive, Service</p>
+<br><br>
+<h3>@ViewChild Example</h3>
+
+<p #par> ViewChild Example Without Static</p>
+<p #par2> ViewChild Example  With Static</p>
+<p>نکته مهم: <b>ElementRef</b></p>
+<p>استفاده از المنت رف ایمن نیست و سعی نکنید که مقدار آن تگ را با المنت رف تغییر بدیم </p>
+<p>با این کار اپلیکیشن را به ایکس اس اس آسیب پذیر می کند </p>
+<p>به جای آن همیشه از renderer استفاده کنیم</p>
+<h6 #par3>Renderer2 Example</h6>
+<h6 #par4>ElementRef Example ATtack XSS</h6>
+<br>
+
+
+<h3>User ComponentRef in @ViewChild</h3>
+<p>یعنی به جای دسترسی به المنت به کامپوننت دسترسی داشته باشیم و آن را تغییر بدیم</p>
+
+
+
+<app-viewchild></app-viewchild>
+<app-viewchild></app-viewchild>
+<app-viewchild></app-viewchild>
+<app-viewchild></app-viewchild>
+<app-viewchild></app-viewchild>
+<app-viewchild></app-viewchild>
+
+<br><br>
+
+
+<h3>ng-content</h3>
+<p>در بین دایرکتیوهای کامپوننت با این تگ می توان کد نوشت</p>
+<app-users>
+    <p class="error" style="color:#fff">We Have An Error</p>
+    <br>
+    <p #par5 class="success"> Success</p>
+</app-users>
+
+<button (click)="onContentChange()">Change Content</button>
+<br><br>

@@ -1,0 +1,61 @@
+<h1> Lesson 1</h1>
+
+<h3>Component Selector</h3>
+
+<h5>1: Element Selector</h5>
+<p>ComponenName.Component.ts file</p>
+<p>Seletor : <b>'app-componentName'</b></p>
+<br>
+<p>ComponenName.Component.html</p>
+<p>use this simlar HTML Tag <b>{{elementSelector}}</b> </p>
+<br><hr>
+
+
+<h5>2: Class Selector</h5>
+<p>ComponenName.Component.ts file</p>
+<p>Seletor : <b>'.app-componentName'</b></p>
+<br>
+<p>ComponenName.Component.html</p>
+<p>use this simlar HTML class <b>{{classSelector}}</b> </p>
+<br><hr>
+
+
+
+<h5>3: Property Selector</h5>
+<p>ComponenName.Component.ts file</p>
+<p>Seletor : <b>'[app-componentName]'</b></p>
+<br>
+<p>ComponenName.Component.html</p>
+<p>use this property in HTML <b>{{propertySelector}}</b> </p>
+<br><hr>
+
+
+
+<h3>DataBinding</h3>
+
+<h4> 1: from TS file To HTML file</h4>
+<p>String Interpolation     :    {{stringInterpolation}}</p>
+<br>
+<p>Property Binding   :  {{PropertyBinding}}</p>
+
+
+<br><hr>
+<h4>2: HTML file to TS file</h4>
+<p>Event Binding  : {{eventBinding}}</p>
+
+<br><hr>
+<h4>3: From TS file To HTMl file and reverse</h4>
+<p>Two-way Binding  :  [(ngModel)] = "var"</p>
+
+<br><hr>
+
+<h5>Example : eventBinding</h5>
+<p>{{name}}</p>
+<input type="text" (input)="onInputChanged($event)">
+
+<br><br>
+<h5>Example : Two-way Binding</h5>
+<p>Note : first import FormModule in app.module.ts</p>
+<p>{{name2}}</p>
+
+<input type="text" [(ngModel)]="name2">

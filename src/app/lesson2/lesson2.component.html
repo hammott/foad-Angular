@@ -1,0 +1,35 @@
+<h1>Practice with DataBinding</h1>
+<br>
+<hr>
+<br>
+
+<p>note: you can use validation in property binding</p>
+<h2 [hidden]="username === ''"> Welcome {{username}}</h2>
+<h2 [hidden]="username !== ''">Please Enter Your Username</h2>
+
+<hr>
+
+
+<div class="labelForm">
+    <label>Enter UserName: </label>
+</div>
+<input type="text" (input)="onUsernameInputChange($event)">
+
+<br>
+<div class="labelForm">
+    <label>Enter Password: </label>
+</div>
+<input type="password" (input)="onPasswordInputChange($event)">
+
+<br>
+
+<div class="labelForm">
+    <label>Retype Password: </label>
+</div>
+<input type="password" (input)="onRetypePasswordInputChange($event)">
+
+<br>
+
+<label [hidden] = "isPasswordsMatch || password === ''">Passwords do not match !!</label>
+<label [hidden] = "isPasswordsMatch == false">Passwords is match </label>
+

@@ -1,0 +1,21 @@
+<h1>چرخه زندگی کامپوننت ها در انگولار</h1>
+<h1>LifceCycle Hooks</h1>
+
+<p><b>Constructor</b> فراخوانی در هنگام ساخت کامپوننت</p>
+<p><b>ngOnChanges - @Input</b> فراخوانی در هنگام تغییر پراپرتی از طریق </p>
+<p><b>ngOnInit</b> فراخوانی در هنگام اولین اجرای کامپوننت</p>
+<p><b>ngDoCheck </b> فراخوانی در هنگام تشخیص هر تغییر در کامپوننت</p>
+<p><b>ngAfterContentInit - @ContentChild</b> فراخوانی در هنگام اعمال محتویات</p>
+<p><b>ngAfterContentChecked - @ContentChild</b> فراخوانی در زمان چک کردن و یا تغییر</p>
+<p><b>ngAfterViewInit - @ViewChild</b> فراخوانی در هنگام اولیه ساختن </p>
+<p><b>ngAfterViewChecked - @ViewChild</b> فراخوانی در زمان چک کردن و یا تغییر</p>
+<p><b>ngOnDestroy</b> فراخوانی در زمان نابودی کامپوننت</p>
+
+
+<h3>Example</h3>
+
+<app-lifecylehook>
+    <p #par6 class="success"> Successfull</p>
+</app-lifecylehook>
+<button (click)="onContentChange()">From Parent Change Content</button>
+<br><br>

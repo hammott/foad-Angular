@@ -1,0 +1,14 @@
+<h1>Atribute Binding</h1>
+
+<br><hr>
+
+<button class="btn btn-danger isCorrectBtn" (click)="isCorrectBtn()">Change Size</button>
+<!-- <p [style]="isCorrect ? 'font-size:2rem' : 'font-size:8rem'">Testing</p> -->
+<p [style.font-size.rem]="isCorrect ? 2 : 8">Testing</p>
+
+<br><br>
+<p [style]="styles">ngOnInit change style objct</p>
+
+<br><br>
+
+<p [class]="classes">OtherExample</p>
